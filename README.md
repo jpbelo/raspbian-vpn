@@ -17,12 +17,24 @@ Raspberry Pi + power supply + SD card (min. 8 Gb)
 
 ## Install and setup OS
 1. Use Etcher or Win32 Disk Imager to write the raspbian image to the SD card
-2. Create an empty file with the name ``ssh`` (no extention) and place it on the sd root
+2. Create an empty file with the name ``ssh`` (no extention) and place it on the sd root - this will enable ssh access to the pi
+3. Put the SD in the Pi, connect it to the network and then the power supply
+4. Wait a few secunds for it to boot
+5. On a computer in the same network, look for the Pi's local IP address (I'm using the [IP Scanner](https://itunes.apple.com/pt/app/ip-scanner/id404167149?mt=12))
+6. Connect to Pi by SSH
+	6.1.a) on OSX, open terminal and type ``ssh pi@xxx.xxx.xxx.xxx`` with the Pi's local IP address
+	6.1.b) on Windows, using [PuTTY](http://www.putty.org)
+	6.2. when asked for the password, the raspbian default is 
+
+3. Update the OS
+	3.1. ``sudo apt-get update``
+	3.2. ``sudo apt-get dist-upgrade``
+
+
 
 
 ## Configure VPN
 
-1. meter ficheiro com nome "ssh" na root e ligar o pi com cabo ethernet
 
 2. procurar pelo IP do pi, usar app IP Scanner ou comando
 			arp -a

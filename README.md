@@ -71,9 +71,9 @@ I'm using 8 in this exemple (you can use any IP but may need to reserve that IP 
 	dns-nameservers 8.8.8.8 8.8.4.4
 ```
 
-5. press ``ctrl + x`` to exit, ``y`` to answer yes to the save prompt, ``enter`` to apply the changes to the file
-6. restarting the network may suffice but I rather reboot the system - ``sudo reboot``
-7. ssh again, this time with the new static local IP address and the new password.
+5. Press ``ctrl + x`` to exit, ``y`` to answer yes to the save prompt, ``enter`` to apply the changes to the file
+6. Restarting the network may suffice but I rather reboot the system - ``sudo reboot``
+7. SSH again, this time with the new static local IP address and the new password.
 
 
 
@@ -87,11 +87,11 @@ Instructions of this coming soon as this is different from router to router.
 
 
 ## Setup VPN
-1. install openVPN - inside the user "pi" folder ( ``cd ~`` )
+1. Install openVPN - inside the user "pi" folder ( ``cd ~`` )
 	1. ``wget https://git.io/vpn -O openvpn-install.sh``
 	2. ``sudo bash openvpn-install.ssh``
-2. follow the steps using the recommended values
-3. we need to move the key certificate to a folder to later access it with FTP
+2. Follow the steps using the recommended values
+3. We need to move the key certificate to a folder to later access it with FTP
 	1. go to the folder where the .ovpn is stored. we need su permissions, so run ``sudo su`` and then ``cd ../../root``
 	2. check what files are inside this folder with ``ls`` - there should be a .ovpn file inside with the name chosen during the openvpn install
 	3. move the file to the pi user's folder with ``mv filename.ovpn /home/pi/filename.ovpn``
@@ -99,7 +99,7 @@ Instructions of this coming soon as this is different from router to router.
 	5. go to that folder ``cd ../home/pi`` OR ``cd ~``
 	6. ``exit`` to leave su mode
 	7. ``ls`` to check the file is now here
-4. after install, everytime we need to create a new key certificates for a new user:
+4. After the initial install, everytime we need to create a new key certificates for a new user:
 	1. from the pi user folder (``cd ~``) run the installer ``sudo bash openvpn-install.ssh``
 	2. press ``1`` for new
 	3. type the name for what machine this is going to be used on and press enter. The file will be generated inside the root folder.
@@ -109,12 +109,12 @@ Instructions of this coming soon as this is different from router to router.
 
 
 ## Setup FTP
-1. install the FTP service with ``sudo apt-get install vsftpd``
-2. check if the service is running with ``service vsftpd status``
-3. on your computer, open any FTP application (Transmit, Cyberduck, FileZilla,...) and connect to the Pi FTP. The server will be the Pi's local IP, the user is ``pi`` and the password will be the one used on the Pi login
+1. Install the FTP service with ``sudo apt-get install vsftpd``
+2. Check if the service is running with ``service vsftpd status``
+3. On your computer, open any FTP application (Transmit, Cyberduck, FileZilla,...) and connect to the Pi FTP. The server will be the Pi's local IP, the user is ``pi`` and the password will be the one used on the Pi login
 	1. I had to disable the option "use passive mode" and use port 21
-4. copy the .ovpn file to your computer. This will be the key certificate to install on you device.
-5. usefull commands for the FTP service:
+4. Copy the .ovpn file to your computer. This will be the key certificate to install on you device.
+5. Usefull commands for the FTP service:
 	```
 	service vsftpd start
 	service vsftpd stop
@@ -146,23 +146,23 @@ A good wait to make sure it's working, is to use mobile data (turn wifi off) and
 ## Firewall - optional
 Best install this after VPN is working, so when it stops working, you know you need to tweek the firewall doors.
 
-1. install the Uncomplicated Firewall with ``sudo apt-get install ufw``
-2. edit the file ufw - ``sudo nano /etc/default/ufw``
+1. Install the Uncomplicated Firewall with ``sudo apt-get install ufw``
+2. Edit the file ufw - ``sudo nano /etc/default/ufw``
 	1. ``yes`` in the IPv6 (the default) - ``IPV6=yes``
 	2. ``ctrl + x`` to exit
-3. setup the firewall:
+3. Setup the firewall:
 	1. to allow all outgoing and none incoming - ``sudo ufw default allow outgoing`` and ``sudo ufw default deny incoming``
 	2. to allow VPN - ``sudo ufw allow 1194``
 	3. to allow SSH - ``sudo ufw allow ssh`` or ``sudo ufw allow 2222/tcp`` (for specific port)
 	4. to allow FTP - ``sudo ufw allow ftp`` (open when FTP is needed)
 	5. to block FTP - ``sudo ufw delete allow ftp`` (close when FTP is not needed)
-4. usefull ufw commands
+4. Usefull ufw commands
 	```
 	sudo ufw status
 	sudo ufw disable
 	sudo ufw enable
 	```
-5. other commands:
+5. Other commands:
 	```
 	sudo ufw allow www
 	sudo ufw allow 80/tcp
@@ -173,4 +173,4 @@ Best install this after VPN is working, so when it stops working, you know you n
 	sudo ufw delete allow ssh
 	sudo ufw delete allow 80/tcp
 	```
-6. to reset all ufw settings ``sudo ufw reset``
+6. To reset all ufw settings ``sudo ufw reset``

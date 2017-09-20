@@ -4,11 +4,11 @@ Instructions for setting up a raspberry pi for vpn
 
 
 ## Before starting
+### operating system
 [Raspbian](https://www.raspberrypi.org/downloads/raspbian/) (the minimal version)
 
-[Etcher](https://etcher.io) (OSX software for writing the image to the SD card)
-
-[Win32 Disk Imager](https://sourceforge.net/projects/win32diskimager/) (Windows software for writing the image to the SD card)
+### software for writing the image to the SD card
+[Etcher](https://etcher.io) (OSX) OR [Win32 Disk Imager](https://sourceforge.net/projects/win32diskimager/) (Windows)
 
 
 

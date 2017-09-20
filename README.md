@@ -3,8 +3,10 @@ Instructions for setting up a raspberry pi for vpn
 
 
 
-## Install OS
-Download Raspbian from [a link](https://www.raspberrypi.org/downloads/raspbian/)
+## Start with the downloads
+[Raspbian](https://www.raspberrypi.org/downloads/raspbian/) (the minimal version)
+[Etcher](https://etcher.io)
+
 
 
 ## Configure VPN

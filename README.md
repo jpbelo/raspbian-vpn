@@ -15,8 +15,9 @@ Raspberry Pi + power supply + SD card (min. 8 Gb)
 
 
 
-## Install OS
-Use Etcher or Win32 Disk Imager to write the raspbian image to the SD card.
+## Install and setup OS
+1. Use Etcher or Win32 Disk Imager to write the raspbian image to the SD card
+2. Create an empty file with the name ``ssh`` (no extention) and place it on the sd root
 
 
 ## Configure VPN

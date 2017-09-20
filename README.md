@@ -4,6 +4,9 @@ Instructions for setting up a raspberry pi for vpn
 
 
 ## Before starting
+### hardware
+Raspberry Pi + power supply + SD card (min. 8 Gb)
+
 ### operating system
 [Raspbian](https://www.raspberrypi.org/downloads/raspbian/) (the minimal version)
 

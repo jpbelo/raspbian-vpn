@@ -49,25 +49,28 @@ Raspberry Pi + power supply + SD card (min. 8 Gb)
 3. ``cat /etc/resolv.conf`` and take note of the nameservers (DNS) used
 4. Pick a local IP address for the Pi that has not been attributed to other machine - best pick from outside the automatic IP range (usually 50 and up) and the router IP (usually 1).
 I'm using 8 in this exemple (you can use any IP but may need to reserve that IP on the router). Edit the interfaces file ``sudo nano /etc/network/interfaces`` (to exit the text editor press ``ctrl + x``) and edit it so it looks something like:
-	```# interfaces(5) file used by ifup(8) and ifdown(8)
+```
+	# interfaces(5) file used by ifup(8) and ifdown(8)
 
-		# Please note that this file is written to be used with dhcpcd
-		# For static IP, consult /etc/dhcpcd.conf and 'man dhcpcd.conf'
+	# Please note that this file is written to be used with dhcpcd
+	# For static IP, consult /etc/dhcpcd.conf and 'man dhcpcd.conf'
 
-		# Include files from /etc/network/interfaces.d:
-		source-directory /etc/network/interfaces.d
+	# Include files from /etc/network/interfaces.d:
+	source-directory /etc/network/interfaces.d
 
-		auto lo
-		iface lo inet loopback
+	auto lo
+	iface lo inet loopback
 
-		auto eth0
-		iface eth0 inet static
-		address 192.168.1.8
-		netmask 255.255.255.0
-		network 192.168.1.0
-		broadcast 192.168.1.255
-		gateway 192.168.1.254
-		dns-nameservers 8.8.8.8 8.8.4.4```
+	auto eth0
+	iface eth0 inet static
+	address 192.168.1.8
+	netmask 255.255.255.0
+	network 192.168.1.0
+	broadcast 192.168.1.255
+	gateway 192.168.1.254
+	dns-nameservers 8.8.8.8 8.8.4.4
+```
+
 5. press ``ctrl + x`` to exit, ``y`` to answer yes to the save prompt, ``enter`` to apply the changes to the file
 6. restarting the network may suffice but I rather reboot the system - ``sudo reboot``
 7. ssh again, this time with the new static local IP address and the new password.

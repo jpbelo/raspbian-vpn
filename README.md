@@ -3,6 +3,8 @@ Instructions for setting up a raspberry pi for vpn
 
 
 
+
+
 ## Before starting
 ### hardware
 Raspberry Pi + power supply + SD card (min. 8 Gb)
@@ -12,6 +14,8 @@ Raspberry Pi + power supply + SD card (min. 8 Gb)
 
 ### download the software for writing the image to the SD card
 [Etcher](https://etcher.io) (OSX) OR [Win32 Disk Imager](https://sourceforge.net/projects/win32diskimager/) (Windows)
+
+
 
 
 
@@ -31,6 +35,8 @@ Raspberry Pi + power supply + SD card (min. 8 Gb)
 	1. ``sudo apt-get update``
 	2. ``sudo apt-get dist-upgrade``
 10. To change the Pi login password: type ``passwd``, press enter, and when asked, the new password
+
+
 
 
 
@@ -62,7 +68,6 @@ I'm using 8 in this exemple (you can use any IP but may need to reserve that IP 
 		broadcast 192.168.1.255
 		gateway 192.168.1.254
 		dns-nameservers 8.8.8.8 8.8.4.4```
-
 5. press ``ctrl + x`` to exit, ``y`` to answer yes to the save prompt, ``enter`` to apply the changes to the file
 6. restarting the network may suffice but I rather reboot the system - ``sudo reboot``
 7. ssh again, this time with the new static local IP address and the new password.
@@ -112,6 +117,7 @@ I'm using 8 in this exemple (you can use any IP but may need to reserve that IP 
 
 ## Install key on devices
 For this stage I recomend using another device so you don't need to keep reconnecting to the Pi. I use the OpenVPN app on the iPhone. For OSX use [Tunnelblick](https://tunnelblick.net)
+
 1. Install the key
 	1. iOS - email yourself, open the file on the iPhone and chose to open it with the OpenVPN app
 	2. OSX - just drag the file to the Tunnelblick top bar icon
@@ -131,25 +137,21 @@ A good wait to make sure it's working, is to use mobile data (turn wifi off) and
 Best install this after VPN is working, so when it stops working, you know you need to tweek the firewall doors.
 
 1. install the Uncomplicated Firewall with ``sudo apt-get install ufw``
-
 2. edit the file ufw - ``sudo nano /etc/default/ufw``
 	1. ``yes`` in the IPv6 (the default) - ``IPV6=yes``
 	2. ``ctrl + x`` to exit
-
 3. setup the firewall:
 	1. to allow all outgoing and none incoming - ``sudo ufw default allow outgoing`` and ``sudo ufw default deny incoming``
 	2. to allow VPN - ``sudo ufw allow 1194``
 	3. to allow SSH - ``sudo ufw allow ssh`` or ``sudo ufw allow 2222/tcp`` (for specific port)
 	4. to allow FTP - ``sudo ufw allow ftp`` (open when FTP is needed)
 	5. to block FTP - ``sudo ufw delete allow ftp`` (close when FTP is not needed)
-
 4. usefull ufw commands
 	```
 	sudo ufw status
 	sudo ufw disable
 	sudo ufw enable
 	```
-
 5. other commands:
 	```
 	sudo ufw allow www
@@ -161,5 +163,4 @@ Best install this after VPN is working, so when it stops working, you know you n
 	sudo ufw delete allow ssh
 	sudo ufw delete allow 80/tcp
 	```
-
 6. to reset all ufw settings ``sudo ufw reset``

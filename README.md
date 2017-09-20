@@ -7,14 +7,16 @@ Instructions for setting up a raspberry pi for vpn
 ### hardware
 Raspberry Pi + power supply + SD card (min. 8 Gb)
 
-### operating system
+### download the operating system
 [Raspbian](https://www.raspberrypi.org/downloads/raspbian/) (the minimal version)
 
-### software for writing the image to the SD card
+### download the software for writing the image to the SD card
 [Etcher](https://etcher.io) (OSX) OR [Win32 Disk Imager](https://sourceforge.net/projects/win32diskimager/) (Windows)
 
 
 
+## Install OS
+Use Etcher or Win32 Disk Imager to write the raspbian image to the SD card.
 
 
 ## Configure VPN

@@ -21,14 +21,15 @@ Raspberry Pi + power supply + SD card (min. 8 Gb)
 3. Put the SD in the Pi, connect it to the network and then the power supply
 4. Wait a few secunds for it to boot
 5. On a computer in the same network, look for the Pi's local IP address (I'm using the [IP Scanner](https://itunes.apple.com/pt/app/ip-scanner/id404167149?mt=12))
+	1. arp -a
 6. Connect to the Pi using SSH
 	1. on OSX, open the terminal and type ``ssh pi@xxx.xxx.xxx.xxx`` (with the Pi's local IP address instead of the xxx). This may prompt a security question, just type ``yes`` and press enter.
 	1. on Windows, use [PuTTY](http://www.putty.org)
 7. When asked for the password, the raspbian default is ``raspberry``
 8. The connection will be made and terminal will show ``pi@raspberry:~ $``. All the commands from now on, until we ``exit``, will run in the Pi.
 9. Update the OS
-	3.1. ``sudo apt-get update``
-	3.2. ``sudo apt-get dist-upgrade``
+	1. ``sudo apt-get update``
+	2. ``sudo apt-get dist-upgrade``
 
 
 

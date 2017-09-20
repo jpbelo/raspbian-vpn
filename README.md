@@ -76,6 +76,13 @@ I'm using 8 in this exemple (you can use any IP but may need to reserve that IP 
 
 
 
+## Setup router to redirect external traffic to the Pi address.
+Instructions of this coming soon as this is different from router to router.
+
+
+
+
+
 ## Setup VPN
 1. install openVPN - inside the user "pi" folder ( ``cd ~`` )
 	1. ``wget https://git.io/vpn -O openvpn-install.sh``

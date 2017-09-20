@@ -19,7 +19,7 @@ Raspberry Pi + power supply + SD card (min. 8 Gb)
 1. Use Etcher or Win32 Disk Imager to write the raspbian image to the SD card
 2. Create an empty file with the name ``ssh`` (no extention) and place it on the sd root - this will enable ssh access to the pi
 3. Put the SD in the Pi, connect it to the network and then the power supply
-4. Wait a few secunds for it to boot
+4. Wait a few seconds for it to boot
 5. On a computer in the same network, look for the Pi's local IP address (I'm using the [IP Scanner](https://itunes.apple.com/pt/app/ip-scanner/id404167149?mt=12))
 	1. ``arp -a`` on the terminal may also do the job
 6. Connect to the Pi using SSH

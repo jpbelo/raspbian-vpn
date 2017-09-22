@@ -100,7 +100,7 @@ Instructions of this coming soon as this is different from router to router.
 	6. ``exit`` to leave su mode
 	7. ``ls`` to check the file is now here
 4. After the initial install, everytime we need to create a new key certificates for a new user:
-	1. from the pi user folder (``cd ~``) run the installer ``sudo bash openvpn-install.ssh``
+	1. from the pi user folder (``cd ~``) run the installer ``sudo bash openvpn-install.sh``
 	2. press ``1`` for new
 	3. type the name for what machine this is going to be used on and press enter. The file will be generated inside the root folder.
 

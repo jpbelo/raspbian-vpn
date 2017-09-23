@@ -33,7 +33,7 @@ Raspberry Pi + power supply + SD card (min. 8 Gb)
 8. The connection will be made and terminal will show ``pi@raspberry:~ $``. All the commands from now on, until we ``exit``, will run in the Pi.
 9. Update the OS
 	1. ``sudo apt-get update``
-	2. ``sudo apt-get dist-upgrade``
+	2. ``sudo apt-get upgrade``
 10. To change the Pi login password: type ``passwd``, press enter, and when asked, the new password
 
 

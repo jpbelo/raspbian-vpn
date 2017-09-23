@@ -89,7 +89,7 @@ Instructions of this coming soon as this is different from router to router.
 ## Setup VPN
 1. Install openVPN - inside the user "pi" folder ( ``cd ~`` )
 	1. ``wget https://git.io/vpn -O openvpn-install.sh``
-	2. ``sudo bash openvpn-install.ssh``
+	2. ``sudo bash openvpn-install.sh``
 2. Follow the steps using the recommended values
 3. We need to move the key certificate to a folder to later access it with FTP
 	1. go to the folder where the .ovpn is stored. we need su permissions, so run ``sudo su`` and then ``cd ../../root``

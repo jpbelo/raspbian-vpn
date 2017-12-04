@@ -92,14 +92,11 @@ Instructions of this coming soon as this is different from router to router.
 	2. ``sudo bash openvpn-install.sh``
 2. Follow the steps using the recommended values
 3. We need to move the key certificate to a folder to later access it with FTP
-	1. go to the folder where the .ovpn is stored. we need su permissions, so run ``sudo su`` and then ``cd ../../root``
-	2. check what files are inside this folder with ``ls`` - there should be a .ovpn file inside with the name chosen during the openvpn install
-	3. move the file to the pi user's folder with ``mv filename.ovpn /home/pi/filename.ovpn``
-	4. use ``ls`` to check if the file is no longer here
-	5. go to that folder ``cd ../home/pi`` OR ``cd ~``
-	6. ``exit`` to leave su mode
-	7. ``ls`` to check the file is now here
-4. After the initial install, everytime we need to create a new key certificates for a new user:
+	1. the file is in the ``root`` folder, so we need to use ``sudo`` permissions
+	2. to check if the file is there, do ``sudo ls ../../root``
+	3. move the file to the pi user's folder with ``sudo mv ../../root/filename.ovpn filename.ovpn``
+	4. use ``ls`` to check if the file was moved
+4. After the initial install, everytime we need to create a key certificate for a new user:
 	1. from the pi user folder (``cd ~``) run the installer ``sudo bash openvpn-install.sh``
 	2. press ``1`` for new
 	3. type the name for what machine this is going to be used on and press enter. The file will be generated inside the root folder.
@@ -108,18 +105,9 @@ Instructions of this coming soon as this is different from router to router.
 
 
 
-## Setup FTP
-1. Install the FTP service with ``sudo apt-get install vsftpd``
-2. Check if the service is running with ``service vsftpd status``
-3. On your computer, open any FTP application (Transmit, Cyberduck, FileZilla,...) and connect to the Pi FTP. The server will be the Pi's local IP, the user is ``pi`` and the password will be the one used on the Pi login
-	1. I had to disable the option "use passive mode" and use port 21
-4. Copy the .ovpn file to your computer. This will be the key certificate to install on you device.
-5. Usefull commands for the FTP service:
-	```
-	service vsftpd start
-	service vsftpd stop
-	service vsftpd status
-	```
+## Copy the file to your computer
+1. from a new terminal window (not in ssh) ``scp pi@192.168.1.8:/home/pi/filename.ovpn /Users/mycomputerusername/Desktop/filename.ovpn``
+2. after the file was copied to the computer, you can delete it from the pi, so ssh into it and ``rm filename.ovpn``
 
 
 
